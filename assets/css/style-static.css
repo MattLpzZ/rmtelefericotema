@@ -1,0 +1,52 @@
+
+/**CABECERA**/
+
+/* foto manteminiento / 404.php */
+
+.contenedor_de_foto{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75vw;
+    max-width: 1000px;
+    min-width: 320px;
+    margin: auto;
+    top: 70px;
+    bottom: 80px;
+
+}
+.contenedor_de_foto img{
+    width: 100%;
+}
+
+/*CONETENDOR DE ARITCULOS STATIC*/
+
+.articles-container-static {
+    grid-column: 1; /* Artículo en la primera columna */
+    grid-row: 1; /* Artículo en la segunda fila */
+    
+    top: 62px; 
+    grid-template-columns: 1fr; /* Un artículo por fila */
+    align-content: start; /* Alinea los elementos en la parte superior de la fila */
+}
+
+.article {
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    padding: 20px;
+    max-width: 70%;
+    margin: 20px auto; /* Agrega un margen superior e inferior de 50px y centra horizontalmente */
+}
+  
+.article img {
+    max-width: 100%; /* La imagen no superará el ancho del contenedor */
+    height: auto; /* Ajusta automáticamente la altura para mantener la proporción original */
+    display: block; /* Elimina cualquier espacio en blanco debajo de la imagen */
+    margin: 0 auto; /* Centra horizontalmente la imagen en su contenedor */
+    object-fit: cover; /* Ajusta la imagen para llenar el espacio sin distorsión */
+}
+
+

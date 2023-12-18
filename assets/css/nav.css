@@ -1,0 +1,154 @@
+html{
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    
+    font-family: Poppins, sans-serif;
+}
+.content {
+    display: grid;
+    margin-top: 10px;
+    grid-template-columns: 2fr 1fr; /* Dos columnas para artículo y aside */
+    grid-template-rows: min-content min-content 1fr; /* Tres filas: barra de navegación, contenido y aside */
+    grid-gap: 20px; /* Espacio entre columnas y filas */
+}
+
+header {
+    grid-column: 1 / span 2; /* La barra de navegación ocupa dos columnas */
+    z-index: 10;
+}
+.hero{
+    position: fixed;
+    width: 100%;
+    background-color: #ffffff;
+    align-content: center;
+    height: 80px;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 4px 25px -22px black;
+    z-index: 100; /* Ajusta el valor del z-index según sea necesario */
+}
+.nav{
+    --state-close: scale(0);
+    --state-hamburguer:scale(1);
+    --state-menu: translate(-100%);
+
+    padding: 20px 120px;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: repeat(2, max-content);
+}
+
+.nav:target{
+    --state-menu: translate(0);
+    --state-close: scale(1);
+    --state-hamburguer:scale(0);
+}
+
+.nav__logo{
+
+    width: 160PX;
+    cursor: pointer;
+    z-index: 1;  
+}
+
+.nav__hamburguer, 
+.nav__close{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    background: #333131fa;
+    border-radius: 100%;
+    color: #000000;
+    
+    cursor: pointer;
+    grid-column: -2/-1;
+    grid-row: 1/2;
+    transition: .4s transform;
+}
+
+.nav__hamburguer{
+    transform: var(--state-hamburguer);
+}
+
+.nav__close{
+    transform: var(--state-close);
+}
+
+.nav__icon{
+    width: 40px; 
+}
+
+.nav__links {
+    
+    width: 100%;
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 62px; /* 80px desde la parte superior */
+    left: 0;
+    right: 0;
+    padding: 20px; /* Separación de 20px en el lado derecho e izquierdo */
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    transform: var(--state-menu);
+    transition: .3s transform;
+    z-index: 100; /* Ajusta el valor del z-index según sea necesario */
+}
+
+.nav__item{
+    list-style: none;
+    font-size: 18px;
+}
+
+.nav__link{
+    color: #777777;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 300ms;
+
+}
+.nav__links a:hover{
+    color: #46a2fd;
+}
+
+@media (min-width:768px) {
+    .hero {
+        position: fixed;
+        align-content: center;
+        width: 100%;
+        top: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+      }
+    
+      
+
+    .nav{
+        --state-hamburguer:scale(0);
+        --state-menu: translate(0);
+    }
+    
+    .nav:target{
+        --state-close: scale(0);
+    }
+
+    .nav__links {
+        position: relative;
+        top: 0;
+        padding: 0;
+        flex-direction: row;
+        gap: 1.5em;
+        left: 0; /* En dispositivos más grandes, resetea el valor de izquierda */
+    }
+
+    .nav__link{
+        font-size: 1rem;
+        letter-spacing: none;
+    }
+}
