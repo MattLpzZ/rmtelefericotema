@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create version tag
+        run: git tag v1.0 -m "Release v1.0"
+        if: "!contains(github.event.head_commit.message, 'skip-ci')"
+
+      - name: Push tags
+        run: git push --tags

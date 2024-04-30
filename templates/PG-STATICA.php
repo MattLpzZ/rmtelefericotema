@@ -20,21 +20,6 @@
         ?>
     </ul>
 </div>
-<!--BANNER ACTUALIDADES-->
-
-<section class="bannernoticias">
-  <i class="iconbanner"></i>
-  <ul class="listadenoticias">
-    <?php
-    for ($i = 1; $i <= 5; $i++) {
-        $news_text = get_theme_mod('news_banner_text_' . $i, '');
-        if (!empty($news_text)) {
-            echo '<li class="news-item"> ' . $i . ': ' . esc_html($news_text) . '</li>';
-        }
-    }
-    ?>
-  </ul>
-</section>
 
 <div class="content">
     <div class="articles-container-static">
@@ -65,51 +50,5 @@
         <?php endif; ?>
     </div>
 </div>
-
-<!-- tools section -->
-<div class="tools">
-        <div class="contenedorinferior">
-            <div class="main-heading">
-                <h2>Como utilizar Nuestros Servicios</h2>
-            </div>
-
-            <div class="tools-content">
-                <div class="tool">
-                <img src="<?php echo get_template_directory_uri() . '/assets/icon/ticket.svg"'; ?>" alt="icon blacklist">
-                    <h3>¡Compra Tu Ticket en el Teleférico de Puerto Plata!t</h3>
-                    <p>Asegura tu lugar para un viaje único en el Teleférico de Puerto Plata.</p>
-                </div>
-                <div class="tool">
-                <img src="<?php echo get_template_directory_uri() . '/assets/icon/camara.svg"'; ?>" alt="icon blacklist">
-                    <h3>Prepara tu Cámara para las Vistas Inigualables de Puerto Plata</h3>
-                    <p>Listo para capturar vistas panorámicas impresionantes de Puerto Plata.</p>
-                </div>
-                <div class="tool">
-                <img src="<?php echo get_template_directory_uri() . '/assets/icon/funicular.svg"'; ?>" alt="icon blacklist">
-                    <h3> Aborda el Funicular Rumbo a la Aventura</h3>
-                    <p>Sube al funicular para una emocionante aventura.</p>
-                </div>
-                <div class="tool">
-                <img src="<?php echo get_template_directory_uri() . '/assets/icon/monumento.svg"'; ?>" alt="icon blacklist">
-                    <h3>Explora del Monumento Loma Isabel de Torres</h3>
-                    <p>Descubre la belleza natural y la historia en este icónico lugar.</p>
-                </div>
-            </div>
-
-            <div class="main-heading">
-                <p>Nota: Todos Nuestros Servicios es por orden de llegada.</p>
-            </div>
-
-            <div class="companies">
-                <?php if ( is_active_sidebar( 'custom-widgets-area' ) ) : ?>
-                    <?php dynamic_sidebar( 'custom-widgets-area' ); ?>
-                <?php endif; ?>
-            </div>
-
-
-        </div>
-    </div>
-
-
 
 <?php get_footer();?>
