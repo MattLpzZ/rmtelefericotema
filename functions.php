@@ -32,10 +32,15 @@ function check_theme_updates_from_github() {
     ));
 
     if (is_wp_error($response)) {
+        echo 'Error al obtener datos de la API de GitHub: ' . $response->get_error_message();
         return;
     }
 
-    $tags = json_decode(wp_remote_retrieve_body($response), true);
+    $response_body = wp_remote_retrieve_body($response);
+    echo 'Respuesta de la API de GitHub: ' . $response_body;
+
+    $tags = json_decode($response_body, true);
+    echo 'Datos decodificados de la respuesta: ' . print_r($tags, true);
 
     // Verificar si $tags es un array válido y no está vacío
     if (is_array($tags) && !empty($tags)) {
@@ -52,6 +57,7 @@ function check_theme_updates_from_github() {
         }
     }
 }
+
 
 // Ejecutar la función cada día
 add_action('init', 'check_theme_updates_from_github');
