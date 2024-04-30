@@ -33,23 +33,12 @@ function check_theme_updates_from_github() {
 
     // Verificar si $tags es un array válido y no está vacío
     if (is_array($tags) && !empty($tags)) {
-        $latest_version = $tags[0]['name']; // Obtener la última versión
-
-        // Obtener la versión actual del tema
-        $current_version = wp_get_theme('RM-TELEFERICO -TEMA')->get('Version');
-
-        // Comparar las versiones
-        if (version_compare($latest_version, $current_version, '>')) {
-            // Hay una actualización disponible
-            // Mostrar un mensaje en el panel de administración
-            add_action('admin_notices', function() use ($latest_version) {
-                echo '<div class="notice notice-warning"><p>¡Hay una nueva versión del tema disponible! Versión ' . esc_html($latest_version) . '.</p></div>';
-            });
-        }
+        // Mostrar un mensaje en el panel de administración
+        add_action('admin_notices', function() {
+            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema!</p></div>';
+        });
     }
 }
-
-
 
 // Ejecutar la función cada día
 add_action('init', 'check_theme_updates_from_github');
