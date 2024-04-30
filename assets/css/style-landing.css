@@ -1065,7 +1065,7 @@ section#blog{
 }
 
 .background-image {
-    background-image: url("../images/cascada.jpg");
+    background-image: url('<?php echo esc_url(get_theme_mod("background_image_1")); ?>');
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -1113,7 +1113,7 @@ section#blog{
     }
 
     .background-image {
-        background-image: url("../images/image-header-mobile.jpg");
+        background-image: uurl('<?php echo esc_url(get_theme_mod("background_image_2")); ?>');
     }
 
     .main p {

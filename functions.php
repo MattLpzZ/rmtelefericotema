@@ -262,38 +262,6 @@ function registrar_campos_enlaces_footer($wp_customize) {
 }
 add_action('customize_register', 'registrar_campos_enlaces_footer');
 
-//js 
-
-
-
-// BANNER ACTUALIDADES
-
-// Agrega un control de personalización para cada noticia
-
-function custom_news_banner_customize_register($wp_customize) {
-    $wp_customize->add_section('news_banner_section', array(
-        'title' => 'Banner de Noticias',
-        'priority' => 30,
-    ));
-
-    for ($i = 1; $i <= 5; $i++) {
-        $setting_name = 'news_banner_text_' . $i;
-
-        $wp_customize->add_setting($setting_name, array(
-            'default' => '',
-            'sanitize_callback' => 'sanitize_text_field',
-        ));
-
-        $wp_customize->add_control($setting_name, array(
-            'label' => 'Texto de Noticia ' . $i,
-            'section' => 'news_banner_section',
-            'type' => 'text',
-        ));
-    }
-}
-
-add_action('customize_register', 'custom_news_banner_customize_register');
-
 // WIDGETSS INFERIOR
 
 function register_custom_widgets_area() {
@@ -308,17 +276,6 @@ function register_custom_widgets_area() {
     ) );
 }
 add_action( 'widgets_init', 'register_custom_widgets_area' );
-
-
-
-// PAGINA LANDING PRINCIPAL
-//VIDEO SUPERIOR
-//CARRUSER 
-
-
-// PG LANDING
-
-//subir video
 
 // Register customizer settings
 function theme_customizer_settings($wp_customize) {
