@@ -35,13 +35,58 @@ function check_theme_updates_from_github() {
     if (is_array($tags) && !empty($tags)) {
         // Mostrar un mensaje en el panel de administración con un botón de actualización
         add_action('admin_notices', function() {
-            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema! <a href="' . esc_url(admin_url('update-theme.php')) . '" class="button">Actualizar Ahora</a></p></div>';
+            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema! <a href="#" id="update-theme-now" class="button">Actualizar Ahora</a></p></div>';
         });
     }
 }
 
 // Ejecutar la función cada día
 add_action('init', 'check_theme_updates_from_github');
+
+// Script para manejar la actualización del tema
+add_action('admin_footer', 'update_theme_script');
+function update_theme_script() {
+    ?>
+    <script>
+    jQuery(document).ready(function($) {
+        $('#update-theme-now').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: {
+                    action: 'update_theme_action'
+                },
+                success: function(response) {
+                    alert(response);
+                },
+                error: function(xhr, status, error) {
+                    alert('Hubo un error durante la actualización del tema.');
+                }
+            });
+        });
+    });
+    </script>
+    <?php
+}
+
+// Función para manejar la actualización del tema
+add_action('wp_ajax_update_theme_action', 'update_theme_action');
+function update_theme_action() {
+    require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+
+    $theme_upgrader = new WP_Upgrader();
+    $theme_update_result = $theme_upgrader->bulk_upgrade(array('theme' => 'rmtelefericotema'));
+
+    if (!empty($theme_update_result['theme'][$theme_update_result])) {
+        echo '¡El tema se actualizó correctamente!';
+    } else {
+        echo 'Hubo un error durante la actualización del tema.';
+    }
+
+    wp_die();
+}
+
 
 // TAMAÑO DE ARCHIVOS PERMITIDO
 @ini_set( 'upload_max_size' , '100M' );

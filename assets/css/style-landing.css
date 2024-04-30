@@ -1065,7 +1065,7 @@ section#blog{
 }
 
 .background-image {
-    background-image: url('<?php echo esc_url(get_theme_mod("background_image_1")); ?>');
+    background-image: url('http://telefericopuertoplata.com/wp-content/uploads/2023/11/W3.jpg');
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -1113,7 +1113,7 @@ section#blog{
     }
 
     .background-image {
-        background-image: uurl('<?php echo esc_url(get_theme_mod("background_image_2")); ?>');
+        background-image: url('http://telefericopuertoplata.com/wp-content/uploads/2023/11/10622911_751960724839300_6059322593030254928_n.jpg');
     }
 
     .main p {
