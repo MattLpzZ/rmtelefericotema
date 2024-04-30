@@ -50,5 +50,40 @@
         <?php endif; ?>
     </div>
 </div>
-
+    <!-- Mutiple Slider Section Starts -->
+    <section id="water-slider">
+        <div class="containerpg">
+            <h3>“Una Experiencia de Altura”</h3>
+      
+        </div>
+    </section>
+    
+    <!-- Blog Section Starts -->
+    <section id="blog">
+        
+            <main class="main">
+            <div class="containerpg2">
+            <div class="left-containermm">
+                <div class="text-containermm">
+                <h1>Disfruta del unico <span>Teleferico Turistico</span> del caribe.</h1>
+                <p>
+                Explorar Puerto Plata se torna incompleto sin experimentar el teleférico, el único en toda la región caribeña que ha estado operando de manera continua desde 1975. Este emocionante viaje de 10 minutos te transporta a 800 metros sobre el paisaje mágico de Puerto Plata, brindándote vistas panorámicas del mar al norte y las exuberantes llanuras que, al final de la travesía, te conducen a la majestuosa Loma Isabel de Torres. Adéntrate en esta reserva natural y su cautivador jardín botánico, y revive la maravilla del teleférico durante tu descenso. Una experiencia que fusiona la naturaleza con la innovación, garantizando un recuerdo inolvidable.</p>
+                </div>
+        
+                <div class="stats-containerm">
+                <ul>
+                    <li><span>755+</span> Usuarios Diarios</li>
+                    <li><span>22,650+</span> Usuarios Mensuales</li>
+                    <li><span>275,575+</span> Usuarios anuales</li>
+                </ul>
+                </div>
+            </div>
+        
+            <div class="right-containermm">
+                <div class="background-image">
+                <div class="background-color"></div>
+                </div>
+            </div>
+            </div>
+        </main>
 <?php get_footer();?>
