@@ -36,7 +36,9 @@ function check_theme_updates_from_github() {
     }
 
     $tags = json_decode(wp_remote_retrieve_body($response), true);
-    if (!empty($tags)) {
+
+    // Verificar si $tags es un array válido y no está vacío
+    if (is_array($tags) && !empty($tags)) {
         $latest_version = $tags[0]['name']; // Obtener la última versión
 
         // Comparar las versiones
@@ -50,6 +52,7 @@ function check_theme_updates_from_github() {
         }
     }
 }
+
 // Ejecutar la función cada día
 add_action('init', 'check_theme_updates_from_github');
 
