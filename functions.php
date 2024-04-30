@@ -35,7 +35,7 @@ function check_theme_updates_from_github() {
     if (is_array($tags) && !empty($tags)) {
         // Mostrar un mensaje en el panel de administración con un botón de actualización
         add_action('admin_notices', function() {
-            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema! <a href="' . esc_url(admin_url('update-core.php')) . '" class="button">Actualizar Ahora</a></p></div>';
+            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema! <a href="' . esc_url(admin_url('update-theme.php')) . '" class="button">Actualizar Ahora</a></p></div>';
         });
     }
 }
