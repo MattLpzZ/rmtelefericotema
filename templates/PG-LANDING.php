@@ -88,7 +88,7 @@
                 data-type='["<?php echo esc_html(get_theme_mod("custom_h1")); ?>"]'>
             </h1>
             <p><?php echo esc_html(get_theme_mod("custom_paragraph", "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, ea. Mollitia maiores voluptatum vitae suscipit tenetur ut officiis assumenda ipsam.")); ?></p>
-            <a href="<?php echo esc_url(get_permalink(get_theme_mod("read_more_page", "#"))); ?>" class="a"><?php esc_html_e('Read More', 'your-text-domain'); ?></a>
+            <a href="<?php echo esc_url(get_permalink(get_theme_mod("read_more_page", "#"))); ?>" class="a"><?php esc_html_e('¡Saber Mas!', 'your-text-domain'); ?></a>
         </div>
 
 
