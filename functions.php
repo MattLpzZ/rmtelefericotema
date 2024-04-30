@@ -33,15 +33,16 @@ function check_theme_updates_from_github() {
 
     // Verificar si $tags es un array válido y no está vacío
     if (is_array($tags) && !empty($tags)) {
-        // Mostrar un mensaje en el panel de administración
+        // Mostrar un mensaje en el panel de administración con un botón de actualización
         add_action('admin_notices', function() {
-            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema!</p></div>';
+            echo '<div class="notice notice-warning"><p>¡Hay una actualización disponible para el tema! <a href="' . admin_url('update-core.php') . '" class="button">Actualizar Ahora</a></p></div>';
         });
     }
 }
 
 // Ejecutar la función cada día
 add_action('init', 'check_theme_updates_from_github');
+
 
 // TAMAÑO DE ARCHIVOS PERMITIDO
 @ini_set( 'upload_max_size' , '100M' );
@@ -351,3 +352,43 @@ function theme_customizer_video_settings($wp_customize) {
 }
 
 add_action('customize_register', 'theme_customizer_video_settings');
+
+
+// CSS IMAGEN BACKGROUND
+
+function custom_theme_customize_register($wp_customize) {
+    // Primera imagen
+    $wp_customize->add_section('theme_background_1', array(
+        'title' => __('Fondo 1 del Tema', 'text_domain'),
+        'priority' => 30,
+    ));
+
+    $wp_customize->add_setting('background_image_1', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'background_image_1', array(
+        'label' => __('Imagen de fondo 1', 'text_domain'),
+        'section' => 'theme_background_1',
+        'settings' => 'background_image_1',
+    )));
+
+    // Segunda imagen
+    $wp_customize->add_section('theme_background_2', array(
+        'title' => __('Fondo 2 del Tema', 'text_domain'),
+        'priority' => 31,
+    ));
+
+    $wp_customize->add_setting('background_image_2', array(
+        'default' => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'background_image_2', array(
+        'label' => __('Imagen de fondo 2', 'text_domain'),
+        'section' => 'theme_background_2',
+        'settings' => 'background_image_2',
+    )));
+}
+add_action('customize_register', 'custom_theme_customize_register');
