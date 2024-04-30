@@ -10,7 +10,49 @@
  */
 
 // 
-// HEAD
+
+// Verificar actualizaciones del tema desde GitHub
+
+function check_theme_updates_from_github() {
+    // Obtener información del tema
+    $theme = wp_get_theme('RM-TELEFERICO -TEMA');
+    $theme_name = $theme->get('Name');
+    $theme_slug = sanitize_title($theme_name);
+    $current_version = $theme->get('Version');
+
+    // Cargar el token de acceso personal de GitHub
+    $github_token = 'SHA256:EQzD7T6AA9L5KPZqiEi+zA3uHMBgGDb3TynVWY/HxDk';
+
+    // Consultar la API de GitHub para obtener las etiquetas (versiones) del repositorio
+    $response = wp_remote_get("https://api.github.com/repos/MattLpzZ/rmtelefericotema/tags", array(
+        'headers' => array(
+            'Authorization' => 'token ' . $github_token,
+            'User-Agent' => 'WordPress'
+        )
+    ));
+
+    if (is_wp_error($response)) {
+        return;
+    }
+
+    $tags = json_decode(wp_remote_retrieve_body($response), true);
+    if (!empty($tags)) {
+        $latest_version = $tags[0]['name']; // Obtener la última versión
+
+        // Comparar las versiones
+        if (version_compare($latest_version, $current_version, '>')) {
+            // Hay una actualización disponible
+            // Puedes agregar aquí la lógica para descargar e instalar la actualización
+            // Por ahora, simplemente mostraremos un mensaje
+            add_action('admin_notices', function() use ($latest_version) {
+                echo '<div class="notice notice-warning"><p>¡Hay una nueva versión del tema disponible! Versión ' . esc_html($latest_version) . '.</p></div>';
+            });
+        }
+    }
+}
+// Ejecutar la función cada día
+add_action('init', 'check_theme_updates_from_github');
+
 // TAMAÑO DE ARCHIVOS PERMITIDO
 @ini_set( 'upload_max_size' , '100M' );
 @ini_set( 'post_max_size', '100M');
