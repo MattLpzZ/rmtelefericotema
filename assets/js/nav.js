@@ -1,10 +1,22 @@
-// JavaScript para manejar el menú hamburguesa
-document.getElementById('nav-hamburguer').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('nav-links').classList.add('active');
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const navHamburguer = document.getElementById('nav-hamburguer');
+    const navClose = document.getElementById('nav-close');
+    const navContainer = document.getElementById('nav-container');
 
-document.getElementById('nav-close').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('nav-links').classList.remove('active');
-});
+    // Función para abrir el menú
+    function openNav() {
+        navContainer.style.transform = 'translateX(0)';
+        navHamburguer.style.transform = 'scale(0)';
+        navClose.style.transform = 'scale(1)';
+    }
+
+    // Función para cerrar el menú
+    function closeNav() {
+        navContainer.style.transform = 'translateX(-100%)';
+        navHamburguer.style.transform = 'scale(1)';
+        navClose.style.transform = 'scale(0)';
+    }
+
+    // Agregar event listeners
+    navHamburguer.addEventListener('click', openNav);
+    navClose.addEventListener('click', closeNav);

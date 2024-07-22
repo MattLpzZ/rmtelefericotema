@@ -1,17 +1,15 @@
-/* Estilos generales para el body */
-body {
+.bodyman  {
     display: grid;
     grid-template-columns: 1fr; /* Por defecto, una columna */
-    gap: 20px; /* Espaciado entre columnas */
-    margin: 0;
+    gap: 0; /* Espaciado entre columnas */
     padding: 0;
-    top: 80px;
+    height: auto;
     font-family: 'Raleway', sans-serif;
 }
 
 /* Estilos específicos para el layout en pantallas grandes */
 @media (min-width: 768px) {
-    body {
+    .bodyman {
         grid-template-columns: 70% 30%; /* Distribución 70% - 30% */
     }
 
