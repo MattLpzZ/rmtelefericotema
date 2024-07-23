@@ -1,10 +1,13 @@
-.bodyman  {
+.bodyman {
     display: grid;
+    width: 90%;
+    justify-content: center; /* Centra horizontalmente */
     grid-template-columns: 1fr; /* Por defecto, una columna */
     gap: 0; /* Espaciado entre columnas */
     padding: 0;
-    height: auto;
+    height: 100vh; /* Ajusta la altura al 100% del viewport */
     font-family: 'Raleway', sans-serif;
+    margin: 0 auto; /* Centra el contenedor en el viewport */
 }
 
 /* Estilos específicos para el layout en pantallas grandes */
