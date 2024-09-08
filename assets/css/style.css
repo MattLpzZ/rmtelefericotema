@@ -1,11 +1,12 @@
+/* Diseño con grid para bodyman */
 .bodyman {
     display: grid;
-    width: 90%;
+    width: 100%;
     justify-content: center; /* Centra horizontalmente */
     grid-template-columns: 1fr; /* Por defecto, una columna */
     gap: 0; /* Espaciado entre columnas */
     padding: 0;
-    height: 100vh; /* Ajusta la altura al 100% del viewport */
+    height: 100%; /* Ajusta la altura al 100% del viewport */
     font-family: 'Raleway', sans-serif;
     margin: 0 auto; /* Centra el contenedor en el viewport */
 }

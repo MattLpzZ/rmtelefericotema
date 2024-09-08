@@ -1,4 +1,4 @@
-$(function () {
+(function () {
     var button = $(".button");
   
     function switchToNext() {

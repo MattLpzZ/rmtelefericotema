@@ -4,8 +4,7 @@ aside {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin-top: 100px;
-    height: 100vh; /* Altura del aside igual a la altura del viewport */
+    height: 100%; /* Altura del aside igual a la altura del viewport */
     box-sizing: border-box; /* Incluye el padding en el tamaño total */
     overflow: hidden; /* Evita que el contenido se desborde */
   }
