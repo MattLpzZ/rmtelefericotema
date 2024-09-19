@@ -10,88 +10,61 @@
  */
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título de pestaña -->
-    <title>Teleférico Puerto Plata</title>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
+    <title><?php wp_title(); ?></title>
 
-    <!-- Ícono de pestaña -->
-    <link rel="icon" href="<?php bloginfo('template_url')?>/assets/images/TELEPOP INCORecurso 3.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;0,600;1,300&display=swap" rel="stylesheet">
 
-    <!-- Encolar estilos CSS -->
-    
-    <link rel="stylesheet" href="<?php bloginfo('template_url')?>/assets/css/style-1.css">
-    <link rel="stylesheet" href="<?php bloginfo('template_url')?>/assets/css/style-static.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <!-- Carga de estilos personalizados -->
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/nav.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-water.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-welcome.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pagination.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/img-promo.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-galery-slider.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/article.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/aside.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/footer.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/sobrenosotros.css">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-         <!-- Encolar scripts (JavaScript) -->
-        
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9171958648587965"
-    crossorigin="anonymous"></script>
-
-    <?php $video_url = get_theme_mod('video_file', ''); ?>
-
-     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HX14LEQQFW"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-HX14LEQQFW');
-    </script>
-<!-- Encolar scripts (JavaScript) -->
-  
-
-<!-- Encolar scripts (JavaScript) -->
-  
-
+    <!-- WordPress Head Hook -->
+    <?php wp_head(); ?>
 </head>
+<body <?php body_class(); ?>>
+    <header class="hero">
+        <nav class="nav container" id="nav">
+            <a href="<?php echo home_url(); ?>">
+                <img loading="lazy" class="nav__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/LGTELEFERICO.png" alt="Logo">
+            </a>
 
-<body  class="body">
+            <div class="nav-container" id="nav-container">
+                <!-- Dynamic WordPress Menu -->
+                <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary_menu', // Defined in functions.php
+                        'menu_class'     => 'nav__links',   // Custom class for UL
+                        'container'      => false,          // Avoids adding a container around UL
+                    ));
+                ?>
+            </div>
 
-<!--------------------------------------------------------------------------------------------------------------------------------------------->
-<!--Header - menu-->
-<header class="hero">
-    <nav class="nav container" id="nav">
-        <a href="<?php echo home_url(); ?>"><img loading="lazy" class="nav__logo" src="<?php bloginfo( 'template_url' )?>/assets/images/LGTELEFERICO.png"></a>
+            <a href="#nav" class="nav__hamburguer" id="nav-hamburguer">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icon/menu.svg" class="nav__icon" alt="Menu Icon">
+            </a>
 
-        <?php
-        // Comprobar si el menú "Superior" está registrado
-        if (has_nav_menu('Superior')) {
-            wp_nav_menu(array(
-                'theme_location' => 'Superior',
-                'container' => 'nav',
-                'container_class' => 'nav-container',
-                'container_id' => 'nav-container',
-                'items_wrap' => '<ul class="nav__links">%3$s</ul>',
-                'menu_class' => 'nav__item',
-            ));
-        } else {
-            // Menú de respaldo o estructura de navegación alternativa
-            echo '<nav class="nav-container">';
-            echo '<ul class="nav__links">';
-            echo '<li class="nav__item"><a href="/">Inicio</a></li>';
-            echo '<li class="nav__item"><a href="/sobre-nosotros">Sobre Nosotros</a></li>';
-            echo '<li class="nav__item"><a href="/contacto">Contacto</a></li>';
-            echo '</ul>';
-            echo '</nav>';
-        }
-        ?>
-
-        <a href="#nav" class="nav__hamburguer">
-            <img src="<?php bloginfo( 'template_url' )?>/assets/images/menu.svg" class="nav__icon">
-        </a>
-
-        <a href="#" class="nav__close">
-            <img src="<?php bloginfo( 'template_url' )?>/assets/images/close.svg" class="nav__icon">
-        </a>
-    </nav>
-    
-</header>
+            <a href="#" class="nav__close" id="nav-close">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/icon/close.svg" class="nav__icon" alt="Close Icon">
+            </a>
+        </nav>
+    </header>
