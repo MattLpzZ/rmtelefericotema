@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+
+section.container-bannerfin{
+  min-width: 500px;
+  text-align: center;
+}
+
+.container-bannerfin h1{
+  font-size: 2em;
+  padding: 10px 0;
+}
+
+.container-bannerfin p{
+  font-size: .75em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 20px 0;
+}
+
+.container-bannerfin button:hover{
+  cursor: pointer;
+}
+
+.container-bannerfin button {
+  background: transparent;
+  outline: none;
+  position: relative;
+  border: 2px solid #111;
+  padding: 15px 50px;
+  overflow: hidden;
+}
+
+/*button:before (attr data-hover)*/
+.container-bannerfin button:hover:before{
+  opacity: 1; 
+  transform: translate(0,0);
+}
+
+.container-bannerfin button:before{
+  content: attr(data-hover);
+  position: absolute;
+  top: 1.1em; 
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: .8em;
+  opacity: 0;
+  transform: translate(-100%,0);
+  transition: all .3s ease-in-out;
+}
+
+/*button div (button text before hover)*/
+.container-bannerfin button:hover div{
+  opacity: 0; 
+  transform: translate(100%,0);
+}
+
+.container-bannerfin button div{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  font-size: .8em;
+  transition: all .3s ease-in-out;
+}
+
+/* Responsividad */
+
+/* Para pantallas pequeñas (max-width: 600px) */
+@media only screen and (max-width: 600px) {
+  section.container-bannerfin {
+    margin: 0 auto;
+    min-width: auto;
+    width: 90%; /* Ajuste para centrar el contenido */
+  }
+}
+
+/* Para pantallas medianas como tablets (max-width: 900px) */
+@media only screen and (max-width: 900px) {
+  section.container-bannerfin {
+    margin: 0 auto;
+    min-width: auto;
+    width: 80%; /* Ajuste para centrar el contenido */
+  }
+}

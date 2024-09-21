@@ -33,6 +33,11 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/aside.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/footer.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/sobrenosotros.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/banner.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-calendario.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bannerfin.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-landing.css">
+
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -42,29 +47,34 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <header class="hero">
-        <nav class="nav container" id="nav">
-            <a href="<?php echo home_url(); ?>">
-                <img loading="lazy" class="nav__logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/LGTELEFERICO.png" alt="Logo">
-            </a>
+<header class="hero">
+    <nav class="nav container" id="nav">
+        <a href="<?php echo home_url(); ?>">
+            <?php 
+            // Obtener el logo del personalizador
+            $custom_logo_id = get_theme_mod('custom_logo');
+            $logo = wp_get_attachment_image_src($custom_logo_id, 'full'); 
+            ?>
+            <img loading="lazy" class="nav__logo" src="<?php echo esc_url($logo[0]); ?>" alt="Logo">
+        </a>
 
-            <div class="nav-container" id="nav-container">
-                <!-- Dynamic WordPress Menu -->
-                <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary_menu', // Defined in functions.php
-                        'menu_class'     => 'nav__links',   // Custom class for UL
-                        'container'      => false,          // Avoids adding a container around UL
-                    ));
-                ?>
-            </div>
+        <div class="nav-container" id="nav-container">
+            <!-- Dynamic WordPress Menu -->
+            <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary_menu', // Defined in functions.php
+                    'menu_class'     => 'nav__links',   // Custom class for UL
+                    'container'      => false,          // Avoids adding a container around UL
+                ));
+            ?>
+        </div>
 
-            <a href="#nav" class="nav__hamburguer" id="nav-hamburguer">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/icon/menu.svg" class="nav__icon" alt="Menu Icon">
-            </a>
+        <a href="#nav" class="nav__hamburguer" id="nav-hamburguer">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icon/menu.svg" class="nav__icon" alt="Menu Icon">
+        </a>
 
-            <a href="#" class="nav__close" id="nav-close">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/icon/close.svg" class="nav__icon" alt="Close Icon">
-            </a>
-        </nav>
-    </header>
+        <a href="#" class="nav__close" id="nav-close">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/icon/close.svg" class="nav__icon" alt="Close Icon">
+        </a>
+    </nav>
+</header>
