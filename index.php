@@ -20,9 +20,9 @@ get_header();?>
 <section id="sc123">
 	<div class="wrp56">
 		<div class="cnt78">
-			<h1>spring collection</h1>
+			<h1>Viajes por Carretera</h1>
 			<p class="dsc34">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-			<a href="#">discover now</a>
+			<a href="#"><button class="btnA7Z custom-A4D">Saber Mas</button></a>
 		</div>
 		<div class="med98">
 			<div class="bg23">

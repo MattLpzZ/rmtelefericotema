@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-calendario.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bannerfin.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-landing.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-contact.css">
 
 
     <!-- Font Awesome -->

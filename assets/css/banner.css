@@ -31,15 +31,15 @@
 }
 
 #unique-flip-container div div {
-   background: #42c58a !important;
+   background: #008f3b !important;
 }
 
 #unique-flip-container div:first-child div {
-   background: #4ec7f3 !important;
+   background: #007DB6 !important;
 }
 
 #unique-flip-container div:last-child div {
-   background: #DC143C !important;
+   background: #f2a81e !important;
 }
 
 @keyframes unique-show {

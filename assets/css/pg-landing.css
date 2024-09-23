@@ -1,8 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+/*BLOG INICIO */
+
 #sc123 {
 	width: 100%;
 	display: block;
 	margin: 6rem 0rem;
 }
+
+/* 2 */
+.custom-A4D {
+	width: 500px;
+	height: 125px;
+	color: #fff;
+	border-radius: 25px;
+	padding: 10px 25px;
+	font-family: 'Roboto', sans-serif !important;
+	font-weight: 500;
+	font-size: 70px;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	 box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+	 7px 7px 20px 0px rgba(0,0,0,.1),
+	 4px 4px 5px 0px rgba(0,0,0,.1);
+	outline: none;
+}
+
+.custom-A4D {
+	background: #007DB6;
+	background: linear-gradient(25deg, #008f3b 0%, #007DB6 100%);
+	border: none;
+  }
+  
+  .custom-A4D:before {
+	height: 0%;
+	width: 2px;
+  }
+  
+  .custom-A4D:hover {
+	box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+				-4px -4px 6px 0 rgba(116, 125, 136, .5), 
+				inset -4px -4px 6px 0 rgba(255,255,255,.2),
+				inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+  }
+  
 
 #sc123 .wrp56 {
 	margin: 0 auto;
@@ -31,7 +75,6 @@
 }
 
 #sc123 .wrp56 .cnt78 p.dsc34 {
-	font-family: Cambria;
 	color: rgba(89, 89, 89, 0.8);
 	font-size: 1rem;
 	font-style: italic;
@@ -110,4 +153,37 @@
 		text-align: justify;
 		margin-bottom: 2rem;
 	}
+}
+/* Responsividad para pantallas de tamaño medio (max-width: 1024px) */
+@media only screen and (max-width: 1024px) {
+	.custom-A4D {
+		width: 400px;
+		height: 100px;
+		font-size: 60px;
+		border-radius: 20px;
+	}
+}
+
+/* Responsividad para pantallas de tamaño pequeño (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+	.custom-A4D {
+		width: 300px;
+		height: 80px;
+		font-size: 50px;
+		border-radius: 15px;
+		padding: 8px 20px;
+	}
+}
+
+/* Responsividad para pantallas muy pequeñas (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+    .custom-A4D {
+        width: auto; /* Ajusta el ancho de acuerdo al contenido */
+        height: 60px;
+        font-size: 40px;
+        border-radius: 10px;
+        padding: 5px 15px;
+        margin: 0 auto; /* Centra el botón horizontalmente si no está en un contenedor de texto */
+        display: inline-block; /* Asegúrate de que el botón siga siendo inline para que se centre bien */
+    }
 }
