@@ -1,90 +1,111 @@
-article {
-    padding: 20px;
-    margin-top: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    gap: 20px; /* Espacio entre columnas */
-}
-
-.blog {
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.conteudo {
-    width: 100%;
-    padding: 25px;
-    background: #fff;
-    box-sizing: border-box;
-}
-
-.conteudo img {
-    display: block;
-    width: 100%;
-    margin: 0 0 25px 0; /* Elimina margen negativo */
-    height: auto; /* Mantiene la proporción de la imagen */
-}
-
-.conteudo h1 {
-    margin: 0 0 15px;
-    padding: 0;
-    color: #666;
-}
-
-.conteudo p:last-child {
-    margin: 0;
-}
-
-.conteudo .continue-lendo {
-    color: #000;
-    font-weight: 700; 
+/* Eliminar borde de imágenes */
+.customWidthWrapper img {
+    border: none;
+  }
+  
+  
+  .customWidthWrapper h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  .customWidthWrapper h2 {
+    font-size: 1.55em;
+    padding-bottom: .35em;
+  }
+  
+  .customWidthWrapper a {
     text-decoration: none;
-    transition: all 0.5s ease;
-}
-
-.conteudo .continue-lendo:hover {
-    margin-left: 10px;
-}
-
-.post-info {
-    float: right;
-    margin: -10px 0 15px;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-@media screen and (max-width: 960px) {
-    article {
-        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    font-weight: 400;
+  }
+  
+  /* Contenedor Principal */
+  .customWidthWrapper {
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.55;
+    font-size: 100%;
+    font-weight: 400;
+    font-family: helvetica, arial, sans-serif;
+  }
+  
+  /* Post Index */
+  #customPostIndex {
+    margin: 3em auto;
+  }
+  
+  .customArticle {
+    margin-top: -0.063em;
+  }
+  
+  .customArticle a {
+    display: block;
+    padding: 2.374em 2.5em 2.5em 2.5em;
+    overflow: hidden;
+    border-top: .063em solid #ccc;
+    border-bottom: .063em solid #ccc;
+  }
+  
+  .customArticle a:hover {
+    background: #eee;
+    border-top: #f2a81e solid .25em;
+    padding: 2.187em 2.5em 2.5em 2.5em;
+  }
+  
+  .customPostImg {
+    float: left;
+    width: 25%;
+    box-sizing: border-box;
+    padding-right: 2em;
+  }
+  
+  .customPostImg img {
+    width: 100%;
+  }
+  
+  .customArticle a h2 {
+    color: #444;
+    float: right; 
+    width: 75%;
+  }
+  
+  .customArticle a:hover h2 {
+    color: #007DB6;
+  }
+  
+  .customArticle a p {
+    color: #444;
+    float: right; 
+    width: 75%;
+  }
+  
+  .customArticle a:hover p {
+    color: #007DB6;
+  }
+  
+  /* Media Queries para Responsividad */
+  @media only screen and (max-width: 750px) {
+    #customPostIndex {
+      width: 100%;
     }
-    
-    .conteudo {
-        padding: 5%;  
-        margin: 0 auto 25px;
-        background: #fff;
+  
+    .customArticle a {
+      padding: 2.374em 1.5em 2.5em 1.5em;
     }
-
-    .conteudo img {
-        margin: 0 0 25px 0;
-        max-width: 100%;
-        min-width: 100%;
+  
+    .customArticle a:hover {
+      padding: 2.187em 1.5em 2.5em 1.5em;
     }
-
-    .conteudo .continue-lendo:hover {
-        margin-left: 0;
+  }
+  
+  @media only screen and (max-width: 481px) {
+    .customPostImg {
+      display: none; /* Ocultar imagen en pantallas pequeñas */
     }
-}
-
-@media screen and (max-width: 460px) {
-    .post-info {
-        display: none;
+  
+    .customArticle a p, 
+    .customArticle a h2 {
+      width: 100%; /* Hacer que el texto ocupe el 100% */
     }
-
-    .conteudo {
-        margin: 25px auto;
-    }
-
-    .conteudo img {
-        margin: 0 0 25px 0;
-    }
-}
+  }
+  

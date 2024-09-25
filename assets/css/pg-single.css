@@ -1,0 +1,153 @@
+.singlephp {
+  background: $color-bg;
+  color: $color;
+  font: $font-weight #{$font-size}/#{$line-height} $font-family, $font-family-fallback;
+  margin: 0;
+}
+
+/* Estilo para el contenedor de la imagen destacada */
+.image-container11 {
+  width: 100%; /* Se ajusta al 100% del ancho del contenedor padre */
+  max-width: 1000px; /* Limita el ancho máximo */
+  max-height: 250px;  /* Limita la altura máxima */
+  
+  overflow: hidden; /* Oculta el desbordamiento de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Fondo del contenedor (opcional) */
+}
+
+.image-container11 img {
+  width: 100%;  /* Ajusta la imagen al ancho completo del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Escala y recorta la imagen para llenar el contenedor */
+  object-position: center; /* Centra la imagen dentro del contenedor */
+  margin-bottom: 1.5em; /* Añade espacio debajo de la imagen */
+}
+
+/* Estilo para todas las imágenes dentro del contenido de la entrada */
+.content-container111 img {
+  width: 100%;   /* Ancho específico del contenedor */
+  max-height: 250px;  /* Altura específica del contenedor */
+  object-fit: cover; /* Escala y recorta la imagen para que se ajuste al contenedor */
+  object-position: center; /* Centra la imagen dentro del contenedor */
+  margin-bottom: 1.5em; /* Añade espacio debajo de la imagen */
+}
+
+.singlephp a {
+  color: #3498db;
+  text-decoration: none;
+  
+  &:hover {
+      color: $color-link-hover;
+  }
+}
+
+.singlephp article {
+  display: block;
+}
+
+.singlephp h2, h3, h4, p {
+  margin: 0 0 .5em 0;
+}
+
+/*---------- UTILITIES ----------*/
+
+.clearfix {
+  *zoom: 1;
+  &:before, &:after { content: ' '; display: table; }
+  &:after { clear: both; }
+}
+
+/*---------- GRID ----------*/
+
+.a7b8c9d {
+  @extend .clearfix;
+  margin: 0 auto;
+  width: $grid-container;
+}
+
+/*---------- MAIN ----------*/
+
+.y1z2x3w {
+  margin-top: 3em;
+}
+
+/*---------- POSTS ----------*/
+
+.p1q2r3s {
+  margin-bottom: 2em;
+}
+
+/*---------- BANNER ----------*/
+
+.x1a2b3c {
+  background: url('../images/carrito.jpg') no-repeat fixed 50% 0;
+  height: 22em;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.x4d5e6f {
+  color: #fff;
+  font-size: 50px;
+  left: 0;
+  position: absolute;
+  top: 75%;
+  text-align: center;
+  text-shadow: 0 0px 2px rgba(0, 0, 0, .5);
+  width: 100%;
+}
+
+/* Ajustes para Responsividad */
+.y1z2x3w {
+  margin-top: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content; /* Ajusta el ancho al contenido o establece un ancho fijo */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+  .image-container11,
+  .content-container111 img {
+      max-height: 200px; /* Ajusta la altura máxima en pantallas más pequeñas */
+  }
+
+  .x4d5e6f {
+      font-size: 40px; /* Reduce el tamaño de fuente en pantallas más pequeñas */
+  }
+}
+
+@media (max-width: 992px) {
+  .image-container11 {
+      max-height: 180px; /* Ajusta la altura máxima */
+  }
+
+  .x4d5e6f {
+      font-size: 30px; /* Ajusta el tamaño de fuente */
+  }
+}
+
+@media (max-width: 768px) {
+  .image-container11,
+  .content-container111 img {
+      width: 100%; /* Ajusta el ancho completo en pantallas pequeñas */
+      max-height: 150px; /* Reduce la altura máxima */
+  }
+
+  .x4d5e6f {
+      font-size: 24px; /* Ajusta el tamaño de fuente */
+      top: 70%; /* Cambia la posición vertical */
+  }
+}
+
+@media (max-width: 576px) {
+  .x4d5e6f {
+      font-size: 20px; /* Reduce aún más el tamaño de fuente */
+      top: 65%; /* Cambia la posición vertical */
+  }
+}

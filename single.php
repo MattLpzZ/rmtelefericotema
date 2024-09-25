@@ -11,128 +11,108 @@
 
 get_header();?>
 
-<!--carruser fotos-->
-
-<div class="carruserportada">
-    <ul>
-        <?php
-        for ($i = 1; $i <= 4; $i++) {
-            $image_url = get_theme_mod("carousel_image_$i");
-            if (!empty($image_url)) {
-        ?>
-        <li>
-            <img loading="lazy" src="<?php echo esc_url($image_url); ?>" alt="Imagen <?php echo $i; ?>">
-        </li>
-        <?php
-            }
-        }
-        ?>
-    </ul>
-</div>
-<!--BANNER ACTUALIDADES-->
-
-<section class="bannernoticias">
-  <i class="iconbanner"></i>
-  <ul class="listadenoticias">
-    <?php
-    for ($i = 1; $i <= 5; $i++) {
-        $news_text = get_theme_mod('news_banner_text_' . $i, '');
-        if (!empty($news_text)) {
-            echo '<li class="news-item"> ' . $i . ': ' . esc_html($news_text) . '</li>';
-        }
-    }
-    ?>
-  </ul>
-</section>
 
 
+<!-- Body Section -->
+<?php
+// Asegúrate de que WordPress cargue correctamente los datos del post.
+if (have_posts()) : 
+    while (have_posts()) : the_post(); ?>
 
-<div class="content">
+    <!-- Banner Section -->
+    <div class="x1a2b3c">
+        <div class="x4d5e6f">
+            <h3><?php the_title(); ?></h3> <!-- Título del artículo dentro del banner -->
+        </div> <!-- end banner-text -->
+    </div> <!-- end banner -->
 
+    <!-- Body Section -->
+    <section class="bodyman">
+        <article>
+            <div class="y1z2x3w">
+                <div class="a7b8c9d">
 
-    <div class="articles-container">
-        <?php
-        $args = array(
-            'post_type' => 'post',   // Tipo de contenido: entradas de blog
-            'post_status' => 'publish',  // Solo entradas publicadas
-            'posts_per_page' => -1,  // Mostrar todas las entradas
-            'orderby' => 'date',  // Ordenar por fecha
-            'order' => 'DESC',  // En orden descendente
-        );
+                    <!-- Imagen destacada -->
+                    <!-- Imagen destacada -->
+                <?php if (has_post_thumbnail()) : ?>
+                    <div class="image-container11">
+                        <?php the_post_thumbnail('full'); ?> <!-- Aquí puedes usar 'full', 'large', 'medium', o un tamaño personalizado -->
+                    </div>
+                <?php endif; ?>
+                    <!-- Artículo principal -->
+                    <div class="p1q2r3s">
+                        <h2><?php the_title(); ?></h2> <!-- Título del artículo -->
+                        
+                        <!-- Contenido del artículo -->
+                        <div class="content-container111">
+                            <?php the_content(); ?>
+                        </div>
+                    </div> <!-- end post -->
 
-        $query = new WP_Query($args);
+                </div> <!-- end container -->
+            </div> <!-- end main -->
+        </article>
 
-        if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post();
-        ?>
-            <article class="article">
-                <h1><?php the_title(); ?></h1>
-                <div class="entry-content">
-                    <?php the_content(); ?>
-                </div>
-                <div class="post-thumbnail">
-                    <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('large', array('class' => 'custom-thumbnail-class')); ?>
-                    <?php endif; ?>
-                </div>
-                <!-- Etiquetas de datos de entrada
-                <div class="post-meta">
-                    <span class="author">Por: <?php the_author(); ?></span>
-                    <span class="date">Publicado el: <?php the_date(); ?></span>
-                    <span class="categories">Categorías: <?php the_category(', '); ?></span>
-                </div>
-                    -->
-            </article>
-        <?php
-            endwhile;
-        endif;
-        wp_reset_postdata();
-        ?>
-    </div>
-
+    <?php 
+    endwhile; 
+else : 
+    echo '<p>No se encontró ningún artículo.</p>';
+endif;
+?>
+   <aside>
     <div class="container-aside">
-        <?php if (is_active_sidebar('aside-widget-area')) : ?>
-            <div class="aside">
-                <?php dynamic_sidebar('aside-widget-area'); ?>
+        <?php if (is_active_sidebar('custom-sidebar')) : ?>
+            <?php dynamic_sidebar('custom-sidebar'); ?>
+        <?php else : ?>
+            <div class="post">
+                <div class="header_post">
+                    <img src="https://images.pexels.com/photos/2529973/pexels-photo-2529973.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+                </div>
+    
+                <div class="body_post">
+                    <div class="post_content">
+                        <h1>Lorem Ipsum</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci animi assumenda cumque deserunt dolorum ex exercitationem.</p>
+    
+                        <div class="container_infos">
+                            <div class="postedBy">
+                                <span>author:</span> John Doe
+                            </div>
+    
+                            <div class="container_tags">
+                                <span>tags:</span>
+                                <div class="tags">
+                                    <ul>
+                                        <li>design</li>
+                                        <li>front end</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        <?php endif; ?>
-    </div>
-</div>
-<section id="water-slider">
-        <div class="containerpg">
-            <h3>“Una Experiencia de Altura”</h3>
-      
-        </div>
-    </section>
 
-<section id="blog">
-        
-            <main class="main">
-            <div class="containerpg2">
-            <div class="left-containermm">
-                <div class="text-containermm">
-                <h1>Disfruta del unico <span>Teleferico Turistico</span> del caribe.</h1>
-                <p>
-                Explorar Puerto Plata se torna incompleto sin experimentar el teleférico, el único en toda la región caribeña que ha estado operando de manera continua desde 1975. Este emocionante viaje de 10 minutos te transporta a 800 metros sobre el paisaje mágico de Puerto Plata, brindándote vistas panorámicas del mar al norte y las exuberantes llanuras que, al final de la travesía, te conducen a la majestuosa Loma Isabel de Torres. Adéntrate en esta reserva natural y su cautivador jardín botánico, y revive la maravilla del teleférico durante tu descenso. Una experiencia que fusiona la naturaleza con la innovación, garantizando un recuerdo inolvidable.</p>
-                </div>
-        
-                <div class="stats-containerm">
-                <ul>
-                    <li><span>755+</span> Usuarios Diarios</li>
-                    <li><span>22,650+</span> Usuarios Mensuales</li>
-                    <li><span>275,575+</span> Usuarios anuales</li>
-                </ul>
-                </div>
-            </div>
-        
-            <div class="right-containermm">
-                <div class="background-image">
-                <div class="background-color"></div>
-                </div>
-            </div>
-            </div>
-        </main>
-    </section>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9171958648587965"
+     crossorigin="anonymous"></script>
+<!-- RESP ADS -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9171958648587965"
+     data-ad-slot="9386965737"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+      </div>
+    <?php endif; ?>
+    
+</aside>
+ </section>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/pg-single.js"></script>
 
 <?php get_footer();?>

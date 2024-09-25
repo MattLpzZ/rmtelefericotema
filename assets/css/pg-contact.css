@@ -6,6 +6,28 @@
     padding: 20px;
 }
 
+/* Grid flexible para trip */
+.trip {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Layout flexible para columnas */
+    gap: 20px;
+}
+
+/* Centrado del contenido */
+.TA_certificateOfExcellence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para la imagen */
+.TA_certificateOfExcellence img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
 .title-e5f6 {
     text-align: center;
     color: #0d47a1;
@@ -24,6 +46,7 @@
     font-weight: bold;
 }
 
+/* Estilos generales */
 .schedule-c3d4, .info-q7r8 {
     background-color: #fff;
     padding: 20px;
@@ -32,23 +55,42 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Layout del horario */
 .times-k1l2 {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    gap: 5px;
 }
 
 .asc-desc-m3n4 {
-    display: flex;
-    justify-content: space-between;
+    display: contents;
+    grid-column: span 2;
+    text-align: center;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
 .time-row-o5p6 {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    display: contents;
+}
+
+.time-row-o5p6 span {
+    padding: 5px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.acs {
+    font-size: 50px;
+    background-color: #007DB6;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.desc {
+    font-size: 50px;
+    background-color: #f2a81e;
+    color: #ffffff;
 }
 
 .time-row-o5p6:last-child {
@@ -65,18 +107,55 @@
     line-height: 1.6;
 }
 
-/* Responsivo */
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .container-a1b2 {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .schedule-c3d4, .info-q7r8 {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .times-k1l2 {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas y grandes */
+    }
+
+    .acs, .desc {
+        font-size: 35px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+    }
+
+    .trip {
+        grid-template-columns: 1fr; /* Los elementos se apilan uno debajo del otro */
+    }
+}
+
+/* Para pantallas medianas y grandes */
 @media (min-width: 768px) {
     .container-a1b2 {
         flex-direction: row;
     }
 
     .schedule-c3d4, .info-q7r8 {
-        width: 50%;
+        width: 48%;
         margin-right: 10px;
+    }
+
+    .times-k1l2 {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas y grandes */
+    }
+
+    .acs, .desc {
+        font-size: 35px; /* Tamaño de fuente más pequeño en pantallas pequeñas */
     }
 
     .schedule-c3d4 {
         margin-right: 20px;
+    }
+
+    .trip {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }

@@ -18,20 +18,19 @@ get_header();?>
 </section>
 
 <section id="sc123">
-	<div class="wrp56">
-		<div class="cnt78">
-			<h1>Viajes por Carretera</h1>
-			<p class="dsc34">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-			<a href="#"><button class="btnA7Z custom-A4D">Saber Mas</button></a>
-		</div>
-		<div class="med98">
-			<div class="bg23">
-				<img src="https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412556/E-commerce%20landing%20page/summer-collection/cold-fashion-man-women_3x.jpg" alt="sc-image" />
-			</div>
-		</div>
-	</div>
-</section>
-
+        <div class="wrp56">
+            <div class="cnt78">
+                <h1><?php echo get_theme_mod('viajes_titulo', 'Viajes por Carretera'); ?></h1>
+                <p class="dsc34"><?php echo get_theme_mod('viajes_descripcion', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'); ?></p>
+                <a href="#"><button class="btnA7Z custom-A4D"><?php echo get_theme_mod('viajes_boton_texto', 'Saber Más'); ?></button></a>
+            </div>
+            <div class="med98">
+                <div class="bg23">
+                    <img src="<?php echo get_theme_mod('viajes_imagen_url', 'https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412556/E-commerce%20landing%20page/summer-collection/cold-fashion-man-women_3x.jpg'); ?>" alt="sc-image" />
+                </div>
+            </div>
+        </div>
+    </section>
 	
 <div id="unique-container-text">
   único
@@ -63,7 +62,7 @@ get_header();?>
             <div class="gallery-row gallery-row-1">
                 <div class="gallery-item">
                     <i class="icon fas fa-map-marker-alt"></i>
-                    <div class="details">
+                    <div class="detailss">
                         <span class="title">
                             <?php echo get_theme_mod('gallery_title_1', 'Llegada a las Instalaciones del Teleférico'); ?>
                         </span>
@@ -77,7 +76,7 @@ get_header();?>
             <div class="gallery-row gallery-row-2">
                 <div class="gallery-item">
                     <i class="icon fas fa-globe"></i>
-                    <div class="details">
+                    <div class="detailss">
                         <span class="title">
                             <?php echo get_theme_mod('gallery_title_2', 'Adquiere tus Tickets'); ?>
                         </span>
@@ -91,7 +90,7 @@ get_header();?>
             <div class="gallery-row gallery-row-1">
                 <div class="gallery-item">
                     <i class="icon fas fa-star"></i>
-                    <div class="details">
+                    <div class="detailss">
                         <span class="title">
                             <?php echo get_theme_mod('gallery_title_3', 'Sumérgete en la Música Típica'); ?>
                         </span>
@@ -105,7 +104,7 @@ get_header();?>
             <div class="gallery-row gallery-row-2">
                 <div class="gallery-item">
                     <i class="icon fas fa-star"></i>
-                    <div class="details">
+                    <div class="detailss">
                         <span class="title">
                             <?php echo get_theme_mod('gallery_title_4', 'Aborda el Funicular hacia la Cima'); ?>
                         </span>
@@ -164,6 +163,7 @@ get_header();?>
   </a>
 </section>
 
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/bannerfin.js"></script>
 
 
 

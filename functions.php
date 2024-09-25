@@ -98,44 +98,129 @@ add_action('customize_register', 'custom_theme_customize_register');
 
 // FUNTION ARTICLE
 
-// Función para mostrar artículos del blog
-function mostrar_blog_articles($num_posts = 5) {
-    // Argumentos para obtener los posts
-    $args = array(
-        'post_type'      => 'post',
-        'posts_per_page' => $num_posts, // Número de posts a mostrar
-    );
+function custom_article_shortcode() {
+    ob_start(); // Inicia el almacenamiento en búfer
 
-    // Consulta WP_Query
-    $query = new WP_Query($args);
-
-    if ($query->have_posts()) :
-        while ($query->have_posts()) : $query->the_post(); ?>
-
-            <div class="blog">
-                <div class="conteudo">
-                    <!-- Imagen destacada -->
-                    <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
-                    <?php endif; ?>
-
-                    <!-- Título del post -->
-                    <h1><?php the_title(); ?></h1>
-                    
-                    <!-- Extracto del contenido -->
-                    <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
-
-                    <!-- Botón "Read more" -->
-                    <a href="<?php the_permalink(); ?>" class="continue-lendo">Read more →</a>
-                </div>
-            </div>
-
-        <?php endwhile;
+    ?>
+    <section id="customPostIndex" class="customWidthWrapper">
+        <?php
+        $args = array(
+            'post_type' => 'post', // O cambia esto por el tipo de post que desees
+            'posts_per_page' => 5, // Ajusta el número de posts a mostrar
+        );
+        $query = new WP_Query($args);
+        if ($query->have_posts()) :
+            while ($query->have_posts()) : $query->the_post(); ?>
+                <article class="customArticle">
+                    <a target="_blank" href="<?php the_permalink(); ?>">
+                        <div class="customPostImg">
+                            <?php if (has_post_thumbnail()) {
+                                the_post_thumbnail('full');
+                            } ?>
+                        </div>
+                        <h2><?php the_title(); ?></h2>
+                        <p><?php the_excerpt(); ?></p>
+                    </a>
+                </article>
+            <?php endwhile;
+        endif;
         wp_reset_postdata();
-    else :
-        echo '<p>No posts found.</p>';
-    endif;
+        ?>
+    </section>
+    <?php
+
+    return ob_get_clean(); // Devuelve el contenido del búfer
 }
+add_shortcode('custom_articles', 'custom_article_shortcode');
+
+// SECTION LLAMADO DE ACCION
+
+function viajes_customizer_settings($wp_customize) {
+    // Sección
+    $wp_customize->add_section('viajes_section', array(
+        'title' => __('Viajes por Carretera', 'tu_textdomain'),
+        'priority' => 30,
+    ));
+
+    // Ajustes
+    $wp_customize->add_setting('viajes_titulo', array(
+        'default' => 'Viajes por Carretera',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_setting('viajes_descripcion', array(
+        'default' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry...',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ));
+
+    $wp_customize->add_setting('viajes_boton_texto', array(
+        'default' => 'Saber Más',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_setting('viajes_imagen_url', array(
+        'default' => 'https://res.cloudinary.com/de8cuyd0n/image/upload/v1520412556/E-commerce%20landing%20page/summer-collection/cold-fashion-man-women_3x.jpg',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    // Controles
+    $wp_customize->add_control('viajes_titulo', array(
+        'label' => __('Título', 'tu_textdomain'),
+        'section' => 'viajes_section',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_control('viajes_descripcion', array(
+        'label' => __('Descripción', 'tu_textdomain'),
+        'section' => 'viajes_section',
+        'type' => 'textarea',
+    ));
+
+    $wp_customize->add_control('viajes_boton_texto', array(
+        'label' => __('Texto del Botón', 'tu_textdomain'),
+        'section' => 'viajes_section',
+        'type' => 'text',
+    ));
+
+    $wp_customize->add_control('viajes_imagen_url', array(
+        'label' => __('URL de la Imagen', 'tu_textdomain'),
+        'section' => 'viajes_section',
+        'type' => 'url',
+    ));
+}
+add_action('customize_register', 'viajes_customizer_settings');
+
+
+
+
+// ARTICULOS DINAMICO SINGLE.PHP
+
+// Función para generar artículos dinámicos
+function generate_articles($articles) {
+    foreach ($articles as $article) {
+        echo '<article class="p1q2r3s">';
+        echo '<h3>' . $article['title'] . '</h3>';
+        echo '<p>' . $article['content'] . '</p>';
+        echo '</article>';
+    }
+}
+
+// Array de artículos con títulos y contenidos
+$articles = [
+    [
+        'title' => 'Heading 1',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
+    ],
+    [
+        'title' => 'Heading 2',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
+    ],
+    [
+        'title' => 'Heading 3',
+        'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
+    ],
+    // Agrega más artículos según sea necesario
+];
 
 // WIDGET ASIDE
 
@@ -258,6 +343,8 @@ add_action('customize_register', 'customizer_slider_settings');
 
 // PG CALENDARIO
 
+// PG CALENDARIO
+
 // Añadir la sección de personalización para eventos en el calendario
 function calendar_customizer_register($wp_customize) {
     // Sección para eventos de Taino Bay
@@ -306,7 +393,7 @@ add_action('customize_register', 'calendar_customizer_register');
 
 // Pasar los eventos personalizados al script del calendario
 function enqueue_calendar_script() {
-    wp_enqueue_script('calendar-script', get_template_directory_uri() . '/assets/js/calendar.js', array('jquery', 'moment'), null, true);
+    wp_enqueue_script('calendar-script', get_template_directory_uri() . '/assets/js/pg-calendar.js', array('jquery', 'moment'), null, true);
 
     // Obtener eventos de Taino Bay y Amber Cove del personalizador
     $taino_bay_events_json = get_theme_mod('taino_bay_events', '[]');
@@ -332,25 +419,27 @@ function enqueue_calendar_script() {
         }
     }
 
-    if (is_array($amber_cove_events)) {
-        foreach ($amber_cove_events as $event) {
-            if (!empty($event['name']) && !empty($event['date'])) {
-                $events[] = array(
-                    'eventName' => sanitize_text_field($event['name']),
-                    'date' => sanitize_text_field($event['date']),
-                    'calendar' => 'Amber Cove',
-                    'color' => 'orange' // Naranja para Amber Cove
-                );
-            }
+// Continuación de la función enqueue_calendar_script
+if (is_array($amber_cove_events)) {
+    foreach ($amber_cove_events as $event) {
+        if (!empty($event['name']) && !empty($event['date'])) {
+            $events[] = array(
+                'eventName' => sanitize_text_field($event['name']),
+                'date' => sanitize_text_field($event['date']),
+                'calendar' => 'Amber Cove',
+                'color' => 'orange' // Naranja para Amber Cove
+            );
         }
     }
+}
 
-    // Pasar los eventos personalizados a tu script de JavaScript
-    wp_localize_script('calendar-script', 'calendarEvents', array(
-        'events' => $events
-    ));
+// Pasar el array de eventos a JavaScript
+wp_localize_script('calendar-script', 'calendarEvents', array(
+    'events' => $events
+));
 }
 add_action('wp_enqueue_scripts', 'enqueue_calendar_script');
+
 
 //BANNER BOTTOM
 

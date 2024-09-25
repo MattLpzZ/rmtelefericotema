@@ -47,6 +47,9 @@
 				inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
   }
   
+  .dsc34 p {
+	text-align: justify; /* Justifica el texto */
+  }
 
 #sc123 .wrp56 {
 	margin: 0 auto;

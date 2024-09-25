@@ -136,14 +136,14 @@ a {
     left: -60px;
 }
 
-.gallery-wrapper .gallery-item .details,
+.gallery-wrapper .gallery-item .detailss,
 .gallery-wrapper .gallery-item .bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.gallery-wrapper .gallery-item .details .title {
+.gallery-wrapper .gallery-item .detailss .title {
     font-size: 22px;
     font-weight: 600;
 }

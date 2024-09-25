@@ -37,7 +37,7 @@
         </div>
 
         <div class="footer-col">
-            <h4>Explore</h4>
+            <h4>Expora</h4>
             <?php
             // Agregar menú dinámico para "Explore"
             wp_nav_menu(array(
@@ -49,7 +49,7 @@
         </div>
 
         <div class="footer-col">
-            <h4>Legal</h4>
+            <h4>Institucional</h4>
             <?php
             // Agregar menú dinámico para "Legal"
             wp_nav_menu(array(
@@ -61,11 +61,9 @@
         </div>
 
         <div class="footer-col">
-            <h4>Newsletter</h4>
+            <h4>¡Suscríbete Ya!</h4>
             <p>
-                Subscribe to our newsletter for a weekly dose
-                of news, updates, helpful tips, and
-                exclusive offers.
+            ¡No te pierdas las novedades del Teleférico de Puerto Plata! Recibe las últimas actualizaciones y ofertas exclusivas al instante.
             </p>
             <form action="#">
                 <input type="text" placeholder="Your email" required>
@@ -82,12 +80,12 @@
 
     <div class="bottom-details">
         <div class="bottom_text">
-            <span class="copyright_text">Copyright &#169; 2023 
+            <span class="copyright_text">Copyright &#169; 2024 
                 <a href="<?php echo esc_url(get_theme_mod('enlace_copyright', '#')); ?>" target="_blank">
                     Patronato Teleferico Puerto Plata
                 </a> 
                 All rights reserved, 
-                <a href="https://www.instagram.com/mattlpzz/" target="_blank">Designed by RM INNOVATION GROUP</a>
+                <a href="https://www.instagram.com/rmdezing/" target="_blank">Designed by RM INNOVATION GROUP</a>
             </span>
             <span class="policy_terms">
                 <a href="<?php echo esc_url(get_theme_mod('enlace_privacy_policy', '#')); ?>" target="_blank">Privacy policy</a>
@@ -99,10 +97,7 @@
 
 <!-- Enlaces a archivos JS -->
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/nav.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/pagination.js"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/section-galery.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/calendar.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/assets/js/bannerfin.js"></script>
 
 
 <?php wp_footer(); ?>

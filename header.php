@@ -38,11 +38,17 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bannerfin.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-landing.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-contact.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-single.css">
 
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.js'></script>
+
 
     <!-- WordPress Head Hook -->
     <?php wp_head(); ?>
