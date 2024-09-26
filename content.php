@@ -1,21 +1,17 @@
 <?php 
+
 /**
  * The main template file.
  *
- * @link 
+ * @link https://github.com/MattLpzZ/website-turistico
  *
  * @package Rm Graphic & Desing - MattLpzZ
  * @subpackage RmTelefericoTema
- * @since RmTelefericoTema 1.2
+ * @since RmTelefericoTema 1.02
  */
 
-get_header(); ?>
 
-<section id="water-slider">
-    <div class="containerpg">
-        <h3><?php echo get_theme_mod('water_slider_text', '“Novedades”'); ?></h3>
-    </div>
-</section>
+ ?>
 
 <section class="bodyman">
 <article>
@@ -29,6 +25,17 @@ get_header(); ?>
     );
     $query = new WP_Query($args);
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9171958648587965"
+     crossorigin="anonymous"></script>
+    <ins class="adsbygoogle"
+        style="display:block; text-align:center;"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-9171958648587965"
+        data-ad-slot="8141741794"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
     // Verifica si hay publicaciones
     if ($query->have_posts()) :
         // Bucle para mostrar cada publicación
@@ -57,17 +64,3 @@ get_header(); ?>
 </section>
 
 </article>
-
-<!-- Código de Google AdSense separado del bucle PHP -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9171958648587965"
-     crossorigin="anonymous"></script>
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-9171958648587965"
-     data-ad-slot="6662661673"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>

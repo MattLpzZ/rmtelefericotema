@@ -11,27 +11,23 @@
 
 // 
 
-// FUNTION MENU
+// FUNTION HEADER
 
-// Agregar soporte para personalización del logo
+
+// Agregar soporte para personalización del logo y favicon
 function mytheme_customize_register( $wp_customize ) {
-    // Agregar sección para el logo
-    $wp_customize->add_section( 'custom_logo_section' , array(
-        'title'      => __( 'Logo Personalizado', 'mytheme' ),
-        'priority'   => 30,
-    ) );
 
-    // Agregar configuración para el logo
-    $wp_customize->add_setting( 'custom_logo' , array(
+    // Agregar configuración para el favicon
+    $wp_customize->add_setting( 'custom_favicon', array(
         'default'   => '',
         'transport' => 'refresh',
     ) );
 
-    // Agregar control para el logo
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'custom_logo', array(
-        'label'      => __( 'Logo', 'mytheme' ),
-        'section'    => 'custom_logo_section',
-        'settings'   => 'custom_logo',
+    // Agregar control para el favicon
+    $wp_customize->add_control( new WP_Customize_Image_control( $wp_customize, 'custom_favicon', array(
+        'label'      => __( 'Favicon', 'mytheme' ),
+        'section'    => 'custom_logo_section', // Usamos la misma sección
+        'settings'   => 'custom_favicon',
     ) ) );
 }
 add_action( 'customize_register', 'mytheme_customize_register' );
@@ -340,8 +336,6 @@ function customizer_slider_settings($wp_customize) {
 }
 
 add_action('customize_register', 'customizer_slider_settings');
-
-// PG CALENDARIO
 
 // PG CALENDARIO
 

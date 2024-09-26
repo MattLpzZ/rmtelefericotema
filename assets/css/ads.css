@@ -1,0 +1,18 @@
+.adsimg {
+    width: 100%; /* Se ajusta al 100% del ancho del contenedor padre */
+    max-width: 500px; /* Limita el ancho máximo */
+    max-height: 250px;  /* Limita la altura máxima */
+    
+    overflow: hidden; /* Oculta el desbordamiento de la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Fondo del contenedor (opcional) */
+}
+.ads-img img {
+    width: 100%;  /* Ajusta la imagen al ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Escala y recorta la imagen para llenar el contenedor */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+    margin-bottom: 1.5em; /* Añade espacio debajo de la imagen */
+}

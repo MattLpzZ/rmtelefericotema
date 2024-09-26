@@ -64,7 +64,6 @@
   
   #calendar .month {
     /*overflow: hidden;*/
-    opacity: 0;
   }
   
   .month.new {

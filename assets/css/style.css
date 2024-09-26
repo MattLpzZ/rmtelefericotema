@@ -11,6 +11,20 @@
     margin: 0 auto; /* Centra el contenedor en el viewport */
 }
 
+.contenedor_de_foto {
+    height: 100vh; /* Hace que el contenedor tenga la altura del viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_de_foto img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+}
+
+
 /* Estilos específicos para el layout en pantallas grandes */
 @media (min-width: 768px) {
     .bodyman {

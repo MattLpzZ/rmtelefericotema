@@ -16,34 +16,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1" />
     <title><?php wp_title(); ?></title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;0,600;1,300&display=swap" rel="stylesheet">
+    <?php if (get_theme_mod('mytheme_favicon')) : ?>
+    <link rel="icon" href="<?php echo esc_url(get_theme_mod('mytheme_favicon')); ?>" type="image/x-icon">
+<?php else : ?>
+    <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/icon/tpp.png" type="image/x-icon"> <!-- Favicon por defecto -->
+<?php endif; ?>
 
     <!-- Carga de estilos personalizados -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/nav.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-water.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-welcome.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pagination.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/img-promo.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-galery-slider.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/article.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/aside.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/footer.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/sobrenosotros.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/banner.css">
+
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-water.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-welcome.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/section-galery-slider.css">
+
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-calendario.css">
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bannerfin.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-landing.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-contact.css">
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/pg-single.css">
 
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/ads.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/img-promo.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/sobrenosotros.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/banner.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/bannerfin.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,500;0,600;1,300&display=swap" rel="stylesheet">
+
     <!-- FullCalendar CSS -->
     <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.10.2/main.min.css' rel='stylesheet' />
     <!-- FullCalendar JS -->
@@ -56,14 +63,10 @@
 <body <?php body_class(); ?>>
 <header class="hero">
     <nav class="nav container" id="nav">
-        <a href="<?php echo home_url(); ?>">
-            <?php 
-            // Obtener el logo del personalizador
-            $custom_logo_id = get_theme_mod('custom_logo');
-            $logo = wp_get_attachment_image_src($custom_logo_id, 'full'); 
-            ?>
-            <img loading="lazy" class="nav__logo" src="<?php echo esc_url($logo[0]); ?>" alt="Logo">
-        </a>
+    <a href="<?php echo home_url(); ?>">
+    <img loading="lazy" class="nav__logo" src="<?php echo get_template_directory_uri(); ?> /assets/images/tpplogo.png" alt="Logo">
+    </a>
+
 
         <div class="nav-container" id="nav-container">
             <!-- Dynamic WordPress Menu -->

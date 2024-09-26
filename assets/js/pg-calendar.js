@@ -274,6 +274,5 @@
   
   (function() {
     var data = calendarEvents.events; // Cambiar esto para usar los eventos que has pasado desde PHP
-  
     var calendar = new Calendar('#calendar', data);
   })();
